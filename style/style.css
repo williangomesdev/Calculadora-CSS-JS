@@ -13,6 +13,10 @@ body {
   background: #333;
 }
 
+body.light {
+  background: #f8f8f8;
+}
+
 .container {
   position: relative;
   min-width: 18.75rem;
@@ -22,7 +26,17 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 1.25rem;
   box-shadow: 1.5625rem 1.5625rem 4.6875rem rgba(0, 0, 0, 0.25),
-    0.625rem 0.625rem 4.375rem rgba(0, 0, 0, 0.25);
+    0.625rem 0.625rem 4.375rem rgba(0, 0, 0, 0.25),
+    inset -0.3125rem -0.3125rem 0.9375rem rgba(0, 0, 0, 0.5),
+    inset 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+}
+
+body.light .container {
+  background: #fafafa;
+  box-shadow: 1.5625rem 1.5625rem 4.6875rem rgba(0, 0, 0, 0.15),
+    0.625rem 0.625rem 4.375rem rgba(0, 0, 0, 0.15),
+    inset -0.3125rem -0.3125rem 0.9375rem rgba(0, 0, 0, 0.15),
+    inset 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
 }
 
 .calculator {
@@ -63,6 +77,13 @@ body {
   border-radius: 0.625rem;
 }
 
+body.light .calculator span {
+  background: linear-gradient(180deg, #fafafa, #f4f4f4);
+  box-shadow: inset -0.5rem 0 0.5rem rgba(0, 0, 0, 0.25),
+    0 0 0 0.125rem rgba(0, 0, 0, 0.75),
+    0.625rem 1.25rem 1.5625rem rgba(0, 0, 0, 0.4);
+}
+
 .calculator span::before {
   content: "";
   position: absolute;
@@ -79,8 +100,22 @@ body {
   border-top: 0.0625rem solid #0009;
 }
 
+body.light .calculator span::before {
+  background: linear-gradient(90deg, #e6e6e6, #efefef);
+  border-radius: 0.625rem;
+  box-shadow: -10px, -10px 10px rgba(255, 255, 255, 0.25),
+    0.625rem 0.3125rem 0.625rem rgba(0, 0, 0, 0.15);
+  border-left: 0.0625rem solid #fff4;
+  border-bottom: 0.0625rem solid #fff4;
+  border-top: 0.0625rem solid #fff9;
+}
+
 .calculator span:active {
   filter: brightness(1.5);
+}
+
+body.light .calculator span:active {
+  filter: brightness(0.9);
 }
 
 .calculator span i {
@@ -93,12 +128,21 @@ body {
   text-transform: uppercase;
 }
 
+body.light .calculator span i {
+  color: #333;
+}
+
+body.light .calculator span.clear i,
+body.light .calculator span.equal i {
+  color: #fff;
+}
+body.light .calculator .clear,
 .calculator .clear {
   grid-column: span 2;
   width: 10.625rem;
   background: #f00;
 }
-
+body.light .calculator .clear::before,
 .calculator .clear::before {
   background: linear-gradient(90deg, #d20000, #fff9);
   border-left: 0.0625rem solid #fff4;
@@ -111,13 +155,58 @@ body {
   height: 10.625rem;
 }
 
+body.light .calculator .equal,
 .calculator .equal {
-    background: #2196f3;
+  background: #2196f3;
 }
 
+body.light .calculator .equal::before,
 .calculator .equal::before {
-    background: linear-gradient(90deg, #1479c9, #fff9);
-    border-left: 0.0625rem solid #fff4;
-    border-bottom: 0.0625rem solid #fff4;
-    border-top: 0.0625rem solid #fff4;
-  }
+  background: linear-gradient(90deg, #1479c9, #fff9);
+  border-left: 0.0625rem solid #fff4;
+  border-bottom: 0.0625rem solid #fff4;
+  border-top: 0.0625rem solid #fff4;
+}
+
+.btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  background: #333;
+  font-size: 1.5rem;
+  box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.25),
+    0.3125rem 0.3125rem 1.875rem rgba(0, 0, 0, 0.25),
+    inset -0.125rem -0.125rem 0.3125rem rgba(0, 0, 0, 0.25),
+    inset 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0.625rem;
+}
+
+body.light .btn {
+  background: #fafafa;
+  box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1),
+    0.3125rem 0.3125rem 1.875rem rgba(0, 0, 0, 0.05),
+    inset -0.125rem -0.125rem 0.3125rem rgba(0, 0, 0, 0.1),
+    inset 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.05);
+}
+
+.btn strong {
+  display: none;
+}
+
+.btn strong:nth-child(1) {
+  display: block;
+}
+
+body.light .btn strong:nth-child(1) {
+  display: none;
+}
+
+body.light .btn strong:nth-child(2) {
+  display: block;
+}
